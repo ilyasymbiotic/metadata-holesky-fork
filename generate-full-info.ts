@@ -68,8 +68,6 @@ async function grabEntitiesInfo(globalDirs: DIRECTORIES[]) {
     }
   }
 
-  console.log({ result });
-
   const filePath = path.join(process.cwd(), "full-info.json");
   await fs.writeFile(filePath, JSON.stringify(result, null, "\t"), "utf8");
 }

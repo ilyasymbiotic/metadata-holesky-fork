@@ -77,11 +77,11 @@ jobs:
                     const info: Info = module.default;
                     result[dir as DIRECTORIES].push({ info, logo: logoPath });
                   } catch (error) {
-                    console.error('Error processing entity in ${entityPath}:', error);
+                    console.error(`Error processing entity in ${entityPath}:`, error);
                   }
                 }
               } catch (error) {
-                console.error('Error reading directory ${dir}:', error);
+                console.error(`Error reading directory ${dir}:`, error);
               }
             }
 

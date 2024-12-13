@@ -71,18 +71,23 @@ jobs:
                   const entityPath = path.join(dir, subdir);
                   try {
                     const infoPath = path.join(entityPath, 'info.json');
-                    const logoPath = path.join(entityPath, 'logo.png');
                     const infoUrl = pathToFileURL(infoPath).href;
 
                     const module = await import(infoUrl);
                     const info: Info = module.default;
-                    result[dir as DIRECTORIES][subdir] = { info, logo: logoPath };
+                    result[dir as DIRECTORIES][subdir] = {
+                      info,
+                      logo:
+                        'https://raw.githubusercontent.com/symbioticfi/metadata-holesky/main/' +
+                        entityPath +
+                        '/logo.png',
+                    };
                   } catch (error) {
-                    console.error('Error processing entity in ${entityPath}', error);
+                    console.error('Error processing entity in ' + entityPath, error);
                   }
                 }
               } catch (error) {
-                console.error('Error reading directory ${dir}', error);
+                console.error('Error reading directory ' + dir, error);
               }
             }
 

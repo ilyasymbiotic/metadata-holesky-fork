@@ -94,5 +94,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: full-info-json
+          name: full-info.json
           path: ./full-info.json

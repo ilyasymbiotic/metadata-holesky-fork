@@ -68,8 +68,7 @@ async function grabEntitiesInfo(globalDirs: DIRECTORIES[]) {
     }
   }
 
-  // console.log(JSON.stringify(result), null, "\t");
-  console.log({ result });
+  console.log(JSON.stringify(result), null, "\t");
 }
 
 grabEntitiesInfo(Object.values(DIRECTORIES));

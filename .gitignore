@@ -6,5 +6,4 @@
 .env
 .env.test
 bin/
-node_modules
 full-info.json

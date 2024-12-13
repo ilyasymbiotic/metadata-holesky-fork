@@ -15,8 +15,9 @@ jobs:
 
       - name: Generate
         run: |
-          npx tsx -e "import fs from 'fs/promises'; 
-          import path from 'path'; 
+          npx tsx -e "
+          import fs from 'fs/promises';
+          import path from 'path';
           import { pathToFileURL } from 'url';
 
           type Info = Partial<{
@@ -55,11 +56,11 @@ jobs:
             OPERATORS = 'operators',
           }
 
-          type Template = Record<DIRECTORIES, Entity[]>;
+          type Template = Record<DIRECTORIES, Record<string, Entity>>;
 
           async function grabEntitiesInfo(globalDirs: DIRECTORIES[]) {
             const result = Object.values(DIRECTORIES).reduce<Template>((acc, curr) => {
-              acc[curr] = [];
+              acc[curr] = {};
               return acc;
             }, {} as Template);
 
@@ -75,13 +76,13 @@ jobs:
 
                     const module = await import(infoUrl);
                     const info: Info = module.default;
-                    result[dir as DIRECTORIES].push({ info, logo: logoPath });
+                    result[dir as DIRECTORIES][subdir] = { info, logo: logoPath };
                   } catch (error) {
-                    console.error('Error processing entity in ' + entityPath, error);
+                    console.error('Error processing entity in ${entityPath}', error);
                   }
                 }
               } catch (error) {
-                console.error('Error reading directory ' + dir, error);
+                console.error('Error reading directory ${dir}', error);
               }
             }
 

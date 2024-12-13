@@ -15,7 +15,7 @@ jobs:
 
       - name: Generate
         run: |
-          npx tsx -e "import fs from 'fs/promises'; 
+          npx tsx --yes -e "import fs from 'fs/promises'; 
           import path from 'path'; 
           import { pathToFileURL } from 'url';
 

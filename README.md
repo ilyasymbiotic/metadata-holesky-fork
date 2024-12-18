@@ -1,4 +1,3 @@
-test
 # **Symbiotic entities metadata repository**
 
 This repository is designed to manage metadata and related resources for decentralized entities, such as vaults, networks, operators, and tokens. 

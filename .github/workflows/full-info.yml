@@ -100,7 +100,6 @@ jobs:
       - name: Release latest full info
         uses: softprops/action-gh-release@v1
         with:
-          prerelease: true
           name: latest
           tag_name: latest
           files: full-info.json

@@ -54,6 +54,7 @@ jobs:
             TOKENS = 'tokens',
             NETWORKS = 'networks',
             OPERATORS = 'operators',
+            POINTS = 'points',
           }
 
           type Template = Record<DIRECTORIES, Record<string, Entity>>;
